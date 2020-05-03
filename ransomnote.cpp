@@ -22,3 +22,20 @@ public:
         return true;
     }
 };
+
+// Improved 
+
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+       unordered_map<char,int> pool;
+       for(char i : ransomNote)
+           pool[i]++;
+       for(char i : magazine)         
+           pool[i]--;
+       for(char i : ransomNote)
+          if(pool[i] > 0)  
+              return false;
+       return true;
+    }
+};
